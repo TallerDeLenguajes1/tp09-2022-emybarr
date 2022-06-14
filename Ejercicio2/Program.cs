@@ -25,10 +25,22 @@ namespace Ejercicio2
             Console.WriteLine("Tamanio :" + prod.Tamanio);
 
            }
-           string filename = "productos.json";
+           string archivonombre = "productos.json";
            File.WriteAllText("productos.json",JsonSerializer.Serialize(listProductos));
            
-           
+           string jsonlista = File.ReadAllText(archivonombre);
+           listProductos = JsonSerializer..Deserialize<List<listproductos>>(jsonlista);
+
+           foreach(var p in listProductos){
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("Nombre : " + prod.Nombre);
+            Console.WriteLine("Precio :" + prod.Precio);
+            Console.WriteLine("Fecha de Vencimeinto : " + prod.Fechadevencimiento);
+            Console.WriteLine("Tamanio :" + prod.Tamanio);
+
+
+           }
+        
 }
 }
 }
