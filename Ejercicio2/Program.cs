@@ -9,6 +9,7 @@ namespace Ejercicio2
         static void Main(string[] args)
         {
            int cant; 
+           int g;
            List<productos> listProductos = new List<productos>();
          
            Console.WriteLine("Ingrese la cantidad de productos : ");
@@ -16,15 +17,7 @@ namespace Ejercicio2
            for (int i = 0; i < cant ; i++){
              listProductos.Add(productos.crearProductos());
            }
-
-           foreach(productos prod in listProductos){
-            Console.WriteLine("------------------------------------------");
-            Console.WriteLine("Nombre : " + prod.Nombre);
-            Console.WriteLine("Precio :" + prod.Precio);
-            Console.WriteLine("Fecha de Vencimeinto : " + prod.Fechadevencimiento);
-            Console.WriteLine("Tamanio :" + prod.Tamanio);
-
-           }
+           
            string archivonombre = "productos.json";
            File.WriteAllText("productos.json",JsonSerializer.Serialize(listProductos));
            
@@ -33,11 +26,10 @@ namespace Ejercicio2
 
            foreach(var p in listProductos){
             Console.WriteLine("------------------------------------------");
-            Console.WriteLine("Nombre : " + prod.Nombre);
-            Console.WriteLine("Precio :" + prod.Precio);
-            Console.WriteLine("Fecha de Vencimeinto : " + prod.Fechadevencimiento);
-            Console.WriteLine("Tamanio :" + prod.Tamanio);
-
+            Console.WriteLine("Nombre : " + p.Nombre);
+            Console.WriteLine("Precio :" + p.Precio);
+            Console.WriteLine("Fecha de Vencimeinto : " + p.Fechadevencimiento);
+            Console.WriteLine("Tamanio :" + p.Tamanio);
 
            }
         
